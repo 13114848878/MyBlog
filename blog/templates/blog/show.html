@@ -1,10 +1,10 @@
-﻿<!-- extends表明此页面继承自 base.html 文件 -->
+<!-- extends表明此页面继承自 base.html 文件 -->
 {% extends "blog/base.html" %}
 {% load staticfiles %}
 
 <!-- 写入 base.html 中定义的 title -->
 {% block title %}
-    文章详情
+	文章详情
 {% endblock title %}
 
 <!-- 写入 base.html 中定义的 content -->
@@ -12,18 +12,18 @@
 
 <!-- 文章详情 -->
 <div class="container">
-    <div class="row">
-        <!-- 标题及作者 -->
-        <h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
-        <div class="col-12 alert alert-success">
-        作者：{{ article.user }} 分类：{{article.category}} 发表时间：{{article.date}}
-        </div>
-        <!-- 文章正文 -->
-        <div class="col-12">
-        <!-- 前端需要使用safe过滤器 -->
-            {{ article.body | safe }}
-        </div>
-    </div>
+	<div class="row">
+		<!-- 标题及作者 -->
+		<h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
+		<div class="col-12 alert alert-success">
+		作者：{{ article.user }} 分类：{{article.category}} 发表时间：{{article.date}}
+		</div>
+		<!-- 文章正文 -->
+		<div class="col-12">
+		<!-- 前端需要使用safe过滤器 -->
+			{{ article.body | safe }}
+		</div>
+	</div>
 </div>
 
 {% endblock content %}
