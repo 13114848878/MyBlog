@@ -11,18 +11,72 @@
 {% block content %}
 
 <!-- 文章详情 -->
-<div class="container">
-	<div class="row">
-		<!-- 标题及作者 -->
-		<h1 class="col-12 mt-4 mb-4">{{ article.title }}</h1>
-		<div class="col-12 alert alert-success">
-		作者：{{ article.user }} 分类：{{article.category}} 发表时间：{{article.date}}
+<div class="container-fluid">
+
+	<div class="row mt-2 no-gutters">
+
+		<!-- 左侧导航栏 -->
+		<div class='col bg-dark ' id='left'>
+			<ul class="nav flex-column">
+		  		<li class="nav-item">
+			    	<a class="nav-link active" href="#">Active</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="#">Link</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="#">Link</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link disabled" href="#">Disabled</a>
+			  	</li>
+			</ul>
 		</div>
-		<!-- 文章正文 -->
-		<div class="col-12">
-		<!-- 前端需要使用safe过滤器 -->
-			{{ article.body | safe }}
+		
+		<!-- 中间展示区域 -->
+		<div class='col-9 bg-light'>
+			<!-- 标题及作者 -->
+			<h2 class="text-center mt-2">{{ article.title }}</h2>
+			<p class="mt-2 text-center bg-light text-dark">
+				作者：{{ article.user }} 分类：{{article.category}} 发表时间：{{article.created_time}}
+			</p>
+
+			<!-- 文章正文 -->
+			<div class="mt-3">
+			<!-- 前端需要使用safe过滤器 -->
+				{{ article.body | safe }}
+			</div>
+
+
 		</div>
+		
+		<!-- 右侧导航栏 -->
+		<div class='col'>
+
+			<h4><strong>目录</strong></h4>
+            <hr>
+            <div class='text-white' style="color:grey">
+                {{ toc|safe }}
+            </div>
+
+			<ul class="nav flex-column">
+		  		<li class="nav-item">
+			    	<a class="nav-link active" href="#">Active</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="#">Link</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link" href="#">Link</a>
+			  	</li>
+			  	<li class="nav-item">
+			    	<a class="nav-link disabled" href="#">Disabled</a>
+			  	</li>
+			</ul>
+		</div>
+
+		
+
 	</div>
 </div>
 
