@@ -46,8 +46,14 @@ def list(request):
 	#
 	# 将导航对象相应的页码内容返回给 articles, 当page不是数字的时候返回第一页
 	articles = paginator.get_page(page)
+	# print(articles.number, type(articles.number))
+	# for i in range(1,2):
+	# 	print(i, type(i))
 
-	context = {'articles': articles, "page_range":page_range}
+	context = {'articles': articles, 
+	"page_range":page_range, 
+	"current_num":int(articles.number),# 需要转换数据类型，在前端并不是int型
+	} 
 	return render(request, 'blog/list.html', context)
 
 

@@ -14,7 +14,7 @@
 
 
 <!-- 定义放置文章标题的div容器 -->
-<div class="container">
+<div class="container-fluid">
     <div class="row mt-2">
 
         {% for article in articles %}
@@ -44,13 +44,27 @@
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item">
-              <a class="page-link" href="?page=1" tabindex="-1">首页</a>
+              <a class="page-link" href="?page=1" >首页</a>
             </li>
             
             {% for num in page_range %}
-                <li class="page-item">
-                  <a class="page-link" href="?page={{ num }}">{{num}}</a>
-                </li>
+                
+                
+                {% if num == current_num %}
+                    <!-- 当前页显示激活状态，提供更好的用户体验 -->
+                    <li class="page-item active" aria-current="page">
+                    <!-- <p>ok</p> -->
+                    <!-- <p>equal</p> -->
+                    <a class="page-link" href="?page={{ num }}">{{num}}</a>
+                    </li>
+                {% else %}
+                    <li class="page-item">
+                        <!-- <p>not equal</p> -->
+                       <a class="page-link" href="?page={{ num }}">{{num}}</a>
+                    </li>
+                {% endif %}
+            
+                     
             {% endfor %}
 
             <li class="page-item">
