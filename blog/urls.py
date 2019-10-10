@@ -13,4 +13,5 @@ urlpatterns = [
     path('tag/<tag>', views.tag, name='tags'),#标签列表页
     path('s/', views.search, name='search'),#搜索列表页
     path('about/', views.about, name='about'),#联系我们单页
+    path('source/', views.source, name='source'),#各种资源链接
     ]

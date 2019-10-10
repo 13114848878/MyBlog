@@ -23,7 +23,8 @@ from django.core.paginator import Paginator
 #首页
 #从models里导入Category类
 def index(request):
-	pass
+	
+	return render(request,'blog/index.html')
 	
 #列表页
 def list(request):
@@ -92,3 +93,8 @@ def search(request):
 # 关于我们
 def about(request):
 	pass
+
+# 关于我们
+def source(request):
+
+	return render(request, 'blog/source.html')

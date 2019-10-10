@@ -1,19 +1,44 @@
+{% load static %}
+
+
 <!-- 定义导航栏 -->
+<!-- Image and text -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-
-    <!-- 导航栏商标 -->
-    <a class="navbar-brand" href="#">我的博客</a>
-
-    <!-- 导航入口 -->
-    <div>
-      <ul class="navbar-nav">
-        <!-- 条目 -->
-        <li class="nav-item">
-          <a class="nav-link" href='{% url "blog:list" %}'>文章列表</a>
-        </li>
-      </ul>
-    </div>
-
+  <a class="navbar-brand" href='{% url "blog:index" %}'>
+    <img src='{% static "blog/images/logo1.png" %}' width="40" height="40" class="align-center" alt="logo">
+    TS的博客
+  </a>
+  
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href='{% url "blog:list" %}'>文章列表 <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Djago</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Python</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href='{% url "blog:source" %}'>资源站</a>
+      </li>
+    </ul>
   </div>
+  <!-- 导航入口 -->
+
+ <div>
+    <ul class="navbar-nav">
+      <!-- 条目 -->
+      <li class="nav-item mr-3">
+        <!-- <i class="fas fa-sign-in-alt" style="color:white;">登录</i> -->
+        <a class="nav-link fas fa-sign-in-alt" data-toggle="tooltip" data-placement="bottom" title="登录" href='{% url "blog:list" %}'></a>
+      </li>
+
+    </ul>
+  </div>
+
+
+
 </nav>
+    
