@@ -4,3 +4,7 @@
 	color:#00F;
 	text-decoration: none;
 } 
+
+.carousel-item img {
+	height: 500px; 
+}

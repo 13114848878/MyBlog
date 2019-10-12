@@ -1,6 +1,6 @@
 # coding:utf-8
 # 
-from django.urls import path
+from django.urls import path, re_path
 from blog import views
 
 
@@ -14,4 +14,5 @@ urlpatterns = [
     path('s/', views.search, name='search'),#搜索列表页
     path('about/', views.about, name='about'),#联系我们单页
     path('source/', views.source, name='source'),#各种资源链接
+    
     ]

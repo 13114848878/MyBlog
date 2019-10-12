@@ -14,8 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
-from django.conf.urls.static import static
+from django.urls import path, include, re_path
+from django.conf.urls.static import static, serve
 from django.conf import settings
 
 urlpatterns = [
@@ -23,7 +23,8 @@ urlpatterns = [
     # namespace 为了区分不同的实例，尤其是当不同的网址指向同一个应用时
     path('blog/', include('blog.urls', ),), 
     path('ueditor/', include('DjangoUeditor.urls')), 
-    path('mdeditor/', include('mdeditor.urls')), 
+    path('mdeditor/', include('mdeditor.urls')),
+    re_path('^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT}), 
     	]
 
 if settings.DEBUG:

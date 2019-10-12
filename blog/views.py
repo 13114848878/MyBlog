@@ -1,7 +1,7 @@
 # from django.shortcuts import render
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from blog.models import Article, Category
+from blog.models import Article, Category,Banner
 from markdown import markdown, Markdown
 from django.template.loader import get_template
 from django.core.paginator import Paginator
@@ -23,8 +23,10 @@ from django.core.paginator import Paginator
 #首页
 #从models里导入Category类
 def index(request):
-	
-	return render(request,'blog/index.html')
+	banner = Banner.objects.filter(is_active=True)
+	# print(banner)
+	content = {'banner':banner, }
+	return render(request,'blog/index.html', content)
 	
 #列表页
 def list(request):
