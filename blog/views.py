@@ -41,17 +41,12 @@ def list(request):
 	# page_range is like range(1,2)
 	page_range = paginator.page_range
 	
-	# a = [i for i in page_range]
-	
 	# 获取 url 中的页码
 	page = request.GET.get('page')
 	# print(page)
 	#
 	# 将导航对象相应的页码内容返回给 articles, 当page不是数字的时候返回第一页
 	articles = paginator.get_page(page)
-	# print(articles.number, type(articles.number))
-	# for i in range(1,2):
-	# 	print(i, type(i))
 
 	context = {'articles': articles, 
 	"page_range":page_range, 
